@@ -441,7 +441,6 @@ Before submitting a change:
 
 ![VeePing Theme Preview](assets/images/theme-preview.png)
 
-> Add your final theme screenshot as `assets/images/theme-preview.png` before publishing the repository.
 
 ## 📄 License
 
