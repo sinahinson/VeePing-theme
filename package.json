@@ -1,0 +1,16 @@
+{
+  "name": "veeping-theme",
+  "version": "1.6.0",
+  "scripts": {
+    "build": "postcss assets/css/input.css -o assets/css/theme.css --env production && postcss assets/css/input.css -o assets/css/theme.min.css --env production && terser assets/js/app.js -c -m -o assets/js/app.min.js",
+    "dev": "postcss assets/css/input.css -o assets/css/theme.css --env development --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "postcss-cli": "^11.0.0",
+    "autoprefixer": "^10.4.0",
+    "cssnano": "^7.0.0",
+    "terser": "^5.31.0"
+  }
+}

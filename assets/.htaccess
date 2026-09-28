@@ -1,0 +1,31 @@
+# ------------------------------------------------------------------
+# Veeping Theme - کش مرورگر و فشرده‌سازی فایل‌های استاتیک
+# این فایل فقط روی هاست‌های Apache با mod_expires/mod_headers/mod_deflate کار می‌کند.
+# اگر روی هاست شما LiteSpeed یا Nginx است، این فایل بی‌اثر است و باید معادل آن
+# را در پیکربندی سرور یا از طریق افزونه کش (مثل LiteSpeed Cache/WP Rocket) تنظیم کنید.
+# ------------------------------------------------------------------
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|webp|svg|ico|css|js|woff2|woff)$">
+        Header set Cache-Control "public, max-age=2592000, immutable"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/css application/javascript text/javascript image/svg+xml
+</IfModule>
